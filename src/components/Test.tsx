@@ -2,6 +2,8 @@ import React from "react";
 import { useAxios } from "../hooks/useAxios";
 import { Spinner } from "./Layout/Spinner";
 import {getNewDeck} from "../queries/getCards"
+import {Card} from "./Card"
+import { DrawCardButton } from "./DrawCardButton";
 
 export const TestContainer = () => {
     const { queryName, url, method } = getNewDeck();
@@ -19,7 +21,9 @@ export const TestContainer = () => {
     return isLoading ? (
       <Spinner />
     ) : (
-      <p>OK</p>
+      <>
+      <Card image={data.cards[0].image}/>
+      </>
     );
   };
   
