@@ -1,35 +1,30 @@
 .cardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    border: 2px solid var(--disabledButton);
-    border-radius: 4px;
-    width: 100%;
-    max-height: 100vh;
-    margin-bottom: 1rem;
-    background-color: white;
-    padding: 1em;
-  }
-  
-  .selectedContainer {
-    composes: cardContainer;
-    border: 2px solid var(--baseColour);
-  }
-  
-  .section.content{
-    flex: 1;
-  }
-  
-  .cardContainer>h3 {
-    font-weight: 600;
-    font-size: 1em;
-    margin: 1.1rem;
-    width: 50%;
-    display: inline;
-    margin: 0;
-  }
-  
-  
-  
-  
-  
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 2px solid var(--disabledButton);
+  border-radius: 4px;
+  width: 100%;
+  max-height: 100vh;
+  margin-bottom: 1rem;
+  background-color: white;
+  padding: 1em;
+}
+
+.selectedContainer {
+  composes: cardContainer;
+  border: 2px solid var(--baseColour);
+}
+
+.section.content {
+  flex: 1;
+}
+
+.cardContainer > h3 {
+  font-weight: 600;
+  font-size: 1em;
+  margin: 1.1rem;
+  width: 50%;
+  display: inline;
+  margin: 0;
+}
