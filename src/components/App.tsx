@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAxios } from "../hooks/useAxios";
 import { Spinner } from "./Layout/Spinner";
-import { getNewDeck, drawCard} from "../queries/getCards";
+import { getNewDeck} from "../queries/getCards";
 import { Card } from "./Card";
 import { DrawCardButton } from "./DrawCardButton";
 import { ICard, IDeck } from "./interfaces";
@@ -22,13 +22,15 @@ const App = () => {
   };
 
   const [deck, setDeck] = useState<IDeck>(defaultDeck);
-  const [prevCard, setPrevCard] = useState(defaultCard);
-  const [card, setCard] = useState(defaultCard);
+  const [prevCard, setPrevCard] = useState<ICard>(defaultCard);
+  const [card, setCard] = useState<ICard>(defaultCard);
   const [matches, setMatches] = useState({ value: 0, suit: 0 });
   const [axiosParams, setAxiosParams] = useState({queryName: "", url: "", method: "", params:{count:0}})
 
 
   const { isLoading, error, data, isSuccess } =  useAxios(axiosParams)
+
+  if (error) throw error
 
 useEffect(()=>{
   const { queryName, url, method,params } = getNewDeck();
@@ -36,32 +38,27 @@ useEffect(()=>{
 },[])
 
 useEffect(()=>{
-  if(!isLoading){
+  if(!isLoading && isSuccess){
     if (deck.deck_id==="123"){
       setDeck(data)
     }
-  }
-  if (isSuccess){
-
-    setPrevCard(card)
-    setCard(data.cards[0])
   }
 },[axiosParams, isLoading])
 
 
 const handleDrawCard = (): void => {
 
-const newCard=deck.cards.shift();
+const newCard=deck?.cards.shift() || card;
 
-    if (newCard!.value === card.value) {
+    if (newCard.value === card.value) {
       matches.value++;
     }
 
-    if (newCard!.suit === card.suit) {
+    if (newCard.suit === card.suit) {
       matches.suit++;
     }
     setPrevCard(card);
-    setCard(newCard!);
+    setCard(newCard);
     setMatches(matches);
   };
 
