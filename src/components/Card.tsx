@@ -1,5 +1,4 @@
-import React, { FC, ReactElement, ReactNode } from "react";
-import styles from "./card.module.css";
+import React, { FC, ReactElement } from "react";
 
 interface ICardProps {
   image: string;
