@@ -72,6 +72,8 @@ const newCard=deck.cards.shift();
       <DrawCardButton drawCard={handleDrawCard} />
       <Card image={prevCard.image} />
       <Card image={card.image} />
+      <p>Value matches: {matches.value}</p>
+      <p>Suit matches: {matches.suit}</p>
     </>
   );
 };
