@@ -1,10 +1,9 @@
 import React from 'react'
+import { TestContainer } from './Test';
 
 const App = () => {
   return (
-    <div className="App">
-      card game
-    </div>
+    <TestContainer/>
   );
 }
 
