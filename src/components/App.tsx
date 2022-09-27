@@ -25,49 +25,51 @@ const App = () => {
   const [prevCard, setPrevCard] = useState(defaultCard);
   const [card, setCard] = useState(defaultCard);
   const [matches, setMatches] = useState({ value: 0, suit: 0 });
-  const [axiosParams, setAxiosParams] = useState({queryName: "", url: "", method: ""})
+  const [axiosParams, setAxiosParams] = useState({queryName: "", url: "", method: "", params:{count:0}})
 
 
   const { isLoading, error, data, isSuccess } =  useAxios(axiosParams)
 
 useEffect(()=>{
-  const { queryName, url, method } = getNewDeck();
-  setAxiosParams({queryName, url, method})
+  const { queryName, url, method,params } = getNewDeck();
+  setAxiosParams({queryName, url, method, params})
 },[])
 
 useEffect(()=>{
   if(!isLoading){
-    setDeck(data)
+    if (deck.deck_id==="123"){
+      setDeck(data)
+    }
+  }
+  if (isSuccess){
+
+    setPrevCard(card)
     setCard(data.cards[0])
   }
-},[isLoading])
+},[axiosParams, isLoading])
 
 
-// const handleDrawCard = (): void => {
-//   setAxiosParams({ 
-//     queryName,
-//     url,
-//     method
-//   })
+const handleDrawCard = (): void => {
 
-// const newCard=prevCard
-//     if (newCard!.value === card.value) {
-//       matches.value++;
-//     }
+const newCard=deck.cards.shift();
 
-//     if (newCard!.suit === card.suit) {
-//       matches.suit++;
-//     }
-//     setPrevCard(card);
-//     setCard(newCard!);
-//     setMatches(matches);
-//   };
+    if (newCard!.value === card.value) {
+      matches.value++;
+    }
+
+    if (newCard!.suit === card.suit) {
+      matches.suit++;
+    }
+    setPrevCard(card);
+    setCard(newCard!);
+    setMatches(matches);
+  };
 
   return isLoading ? (
     <Spinner />
   ) : (
     <>
-      {/* <DrawCardButton drawCard={handleDrawCard} /> */}
+      <DrawCardButton drawCard={handleDrawCard} />
       <Card image={prevCard.image} />
       <Card image={card.image} />
     </>

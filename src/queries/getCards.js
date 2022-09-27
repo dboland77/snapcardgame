@@ -3,7 +3,7 @@ export const getNewDeck = () => {
     queryName: "new deck",
     url: "deck/new/draw/",
     method: "GET",
-    searchParams: { count: 52 },
+    params: { count: 52 },
   };
 };
 
@@ -12,7 +12,7 @@ export const shuffleCards = () => {
     queryName: "shuffle deck",
     url: "deck/new/draw/",
     method: "GET",
-    searchParams: { count: 52 },
+    params: {count: 52 },
   };
 }
 
@@ -21,6 +21,6 @@ export const drawCard = (deckid) => {
     queryName: "draw a card",
     url: `deck/${deckid}/draw/`,
     method: "GET",
-    searchParams: { count: 1 },
+    params: { count: 1 },
   }
 }
