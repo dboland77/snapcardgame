@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAxios } from "../hooks/useAxios";
-import { Spinner } from "./Layout/Spinner";
 import { getNewDeck} from "../queries/getCards";
-import { Card } from "./Card";
-import { DrawCardButton } from "./DrawCardButton";
+import { Card, DrawCardButton, Spinner, CardTable, Header } from "./Layout";
 import { ICard, IDeck } from "./interfaces";
 
 const App = () => {
@@ -66,9 +64,13 @@ const newCard=deck?.cards.shift() || card;
     <Spinner />
   ) : (
     <>
-      <DrawCardButton drawCard={handleDrawCard} />
+    <Header/>
+    <hr></hr>
+    <CardTable>
       <Card image={prevCard.image} />
       <Card image={card.image} />
+    </CardTable>
+      <DrawCardButton drawCard={handleDrawCard} />
       <p>Value matches: {matches.value}</p>
       <p>Suit matches: {matches.suit}</p>
     </>

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import styles from "./dcbutton.module.css"
 
 interface ICardImageProps {
   drawCard: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -6,8 +7,11 @@ interface ICardImageProps {
 
 export const DrawCardButton: FC<ICardImageProps> = ({ drawCard }) => {
   return (
-    <button type="button" className="" onClick={drawCard}>
+    <div className={styles.dcButtonContainer}>
+
+    <button type="button" className={styles.dcButton} onClick={drawCard}>
       Draw card
     </button>
+    </div>
   );
 };

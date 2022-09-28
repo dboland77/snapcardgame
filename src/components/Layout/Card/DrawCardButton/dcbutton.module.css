@@ -1,0 +1,15 @@
+
+
+.dcButtonContainer{
+    --buttonBackground: #008cff;
+    text-align: center;
+}
+
+.dcButton{
+    background-color: var(--buttonBackground);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    width: 10rem;
+    height: 3rem;
+}

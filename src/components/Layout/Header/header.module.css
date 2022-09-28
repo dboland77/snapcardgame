@@ -1,0 +1,23 @@
+.headerContainer {
+    display: flex;
+    margin-top: auto; 
+    padding: 0.5rem;
+  }
+  
+  .headerRight{
+    margin-left: auto;
+  }
+
+  .headerLeft{
+    margin-right: auto;
+  }
+
+  .circle{
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 0.2rem;
+  }
+  

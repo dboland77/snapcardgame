@@ -1,0 +1,7 @@
+.cardTableContainer{
+    display: flex;
+    gap: 2rem;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+}
