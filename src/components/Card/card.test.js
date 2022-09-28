@@ -7,7 +7,7 @@ describe("card tests", () => {
   it("renders a card", () => {
     expect.assertions(1);
     render(<Card />);
-    const container = screen.getByRole("cardcontainer");
+    const container = screen.getByRole('div')
     expect(container).toBeInTheDocument();
   });
 });

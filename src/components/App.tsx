@@ -74,7 +74,7 @@ const newCard=deck?.cards.shift() || card;
     <>
     <Header/>
     <hr></hr>
-    {match !=="" && <MatchDisplay matchType={match}/>}
+    <MatchDisplay matchType={match}/>
     <CardTable>
       <Card image={prevCard.image} />
       <Card image={card.image} />

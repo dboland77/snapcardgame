@@ -7,7 +7,8 @@ interface IMatchDisplayProps {
 export const MatchDisplay:FC<IMatchDisplayProps> = ({matchType}) => {
   return (
     <div className={styles.matchContainer}>
-    <p>{`SNAP ${matchType}!`}</p>
+      {matchType !=="" && 
+    <p>{`SNAP ${matchType}!`}</p>}
     </div>
   )
 }

@@ -6,6 +6,6 @@ interface ICardTableProps{
 }
 export const CardTable:FC<ICardTableProps> = ({children}) => {
   return (
-    <div className={styles.cardTableContainer}>{children}</div>
+    <div className={styles.cardTableContainer} data-testid='card-table'>{children}</div>
   )
 }

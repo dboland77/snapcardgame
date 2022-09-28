@@ -5,7 +5,11 @@
 3. Checks the new card against the previously drawn card and tracks suit matches and value matches
 4. Displays the totals
 
-To run just clone this repo, run yarn to install the dependencies and then yarn start to load the app at localhost:3000
+
+
+To run the app please just clone this repo, run yarn to install the dependencies and then yarn start to load the app at localhost:3000
+
+To run the test suite please run "yarn test" on the command line
 
 
 The app is also deployed on Netlify - current status: 
