@@ -3,6 +3,7 @@
 .dcButtonContainer{
     --buttonBackground: #008cff;
     text-align: center;
+    font-weight: bold;
 }
 
 .dcButton{
