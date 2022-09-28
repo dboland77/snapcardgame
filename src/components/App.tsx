@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useAxios } from "../hooks/useAxios";
 import { getNewDeck} from "../queries/getCards";
-import { Card, DrawCardButton, Spinner, CardTable, Header } from "./Layout";
-import { ICard, IDeck } from "./interfaces";
+import {  Spinner, CardTable, Header } from "./Layout";
+import {Card, DrawCardButton} from "."
+import { ICard, IDeck } from "../interfaces";
 
 const App = () => {
   const defaultCard: ICard = {
