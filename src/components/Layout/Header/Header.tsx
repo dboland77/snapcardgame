@@ -9,7 +9,7 @@ export const Header = () => {
 
       <div className={styles.circle}></div>
       <div className={styles.circle}></div>
-      <div className={styles.circle}></div>
+      <div className={styles.bluecircle}></div>
       </div>
     </header>
   );

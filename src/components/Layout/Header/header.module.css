@@ -1,7 +1,8 @@
 .headerContainer {
     display: flex;
-    margin-top: auto; 
-    padding: 0.5rem;
+    margin-top: 0.5rem; 
+    --blueCircleBorder: #008cff;
+    --greyText: #dedede;
   }
   
   .headerRight{
@@ -9,15 +10,24 @@
   }
 
   .headerLeft{
-    margin-right: auto;
+    margin-left: 1rem;
+    font-weight: 400;
+    font-size: 120%;
+    color: var(--greyText);
+
   }
 
   .circle{
     border-radius: 50%;
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
     display: inline-block;
     border: 1px solid black;
-    margin: 0.2rem;
+    margin: 0 0.2rem;
+  }
+
+  .bluecircle{
+   composes:circle;
+   border-color: var(--blueCircleBorder);
   }
   
