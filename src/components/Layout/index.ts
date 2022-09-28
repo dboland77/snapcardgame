@@ -1,5 +1,6 @@
 export * from "./CardTable/CardTable";
 export * from "./Header/Header";
 export * from "./Spinner/Spinner";
-export * from "./ResultDisplay/ResultDisplay"
+export * from "./ResultDisplay/ResultDisplay";
+export * from "./MatchDisplay/MatchDisplay";
 export * from "./"

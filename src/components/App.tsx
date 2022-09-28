@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAxios } from "../hooks/useAxios";
 import { getNewDeck} from "../queries/getCards";
-import {  Spinner, CardTable, Header, ResultDisplay } from "./Layout";
+import {  Spinner, CardTable, Header, ResultDisplay, MatchDisplay } from "./Layout";
 import {Card, DrawCardButton} from "."
 import { ICard, IDeck } from "../interfaces";
 
@@ -26,6 +26,7 @@ const App = () => {
   const [matches, setMatches] = useState({ value: 0, suit: 0 });
   const [axiosParams, setAxiosParams] = useState({queryName: "", url: "", method: "", params:{count:0}})
   const [endofDeck, setEndOfDeck]=useState(false)
+  const [match, setMatch] = useState("")
 
   const { isLoading, error, data, isSuccess } =  useAxios(axiosParams)
 
@@ -48,13 +49,15 @@ useEffect(()=>{
 const handleDrawCard = (): void => {
 
 const newCard=deck?.cards.shift() || card;
-
+    setMatch("")
     if (newCard.value === card.value) {
       matches.value++;
+      setMatch("VALUE")
     }
 
     if (newCard.suit === card.suit) {
       matches.suit++;
+      setMatch("SUIT")
     }
     setPrevCard(card);
     setCard(newCard);
@@ -71,6 +74,7 @@ const newCard=deck?.cards.shift() || card;
     <>
     <Header/>
     <hr></hr>
+    {match !=="" && <MatchDisplay matchType={match}/>}
     <CardTable>
       <Card image={prevCard.image} />
       <Card image={card.image} />
