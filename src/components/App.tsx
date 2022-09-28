@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAxios } from "../hooks/useAxios";
 import { getNewDeck} from "../queries/getCards";
-import {  Spinner, CardTable, Header } from "./Layout";
+import {  Spinner, CardTable, Header, ResultDisplay } from "./Layout";
 import {Card, DrawCardButton} from "."
 import { ICard, IDeck } from "../interfaces";
 
@@ -25,7 +25,7 @@ const App = () => {
   const [card, setCard] = useState<ICard>(defaultCard);
   const [matches, setMatches] = useState({ value: 0, suit: 0 });
   const [axiosParams, setAxiosParams] = useState({queryName: "", url: "", method: "", params:{count:0}})
-
+  const [endofDeck, setEndOfDeck]=useState(false)
 
   const { isLoading, error, data, isSuccess } =  useAxios(axiosParams)
 
@@ -59,6 +59,10 @@ const newCard=deck?.cards.shift() || card;
     setPrevCard(card);
     setCard(newCard);
     setMatches(matches);
+
+   if(deck.cards.length === 0){
+    setEndOfDeck(true)
+   }
   };
 
   return isLoading ? (
@@ -71,9 +75,11 @@ const newCard=deck?.cards.shift() || card;
       <Card image={prevCard.image} />
       <Card image={card.image} />
     </CardTable>
-      <DrawCardButton drawCard={handleDrawCard} />
-      <p>Value matches: {matches.value}</p>
-      <p>Suit matches: {matches.suit}</p>
+      {!endofDeck && <DrawCardButton drawCard={handleDrawCard} />}
+      {endofDeck && <ResultDisplay
+       valueMatches = {matches.value}
+       suitMatches = {matches.suit}/>}
+     
     </>
   );
 };

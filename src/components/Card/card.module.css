@@ -1,13 +1,12 @@
 .cardContainer {
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  border: 2px solid var(--disabledButton);
   border-radius: 4px;
   width: 100%;
   max-height: 100vh;
   margin-bottom: 1rem;
   background-color: white;
-  padding: 1em; */
+  padding: 1em;
 }
 
